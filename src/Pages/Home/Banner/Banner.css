@@ -1,0 +1,11 @@
+.banner-container {
+    width: 80%;
+    margin-inline: auto;
+    height: 250px;
+    overflow: hidden;
+}
+
+.banner-container img {
+    width: 100% !important;
+    height: 250px !important;
+}
