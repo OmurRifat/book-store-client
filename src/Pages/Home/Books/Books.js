@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Book from '../Book/Book';
 
 const Books = () => {
@@ -21,6 +22,9 @@ const Books = () => {
                     ></Book>)
                 }
             </div>
+            <Link to='/allbooks' className='w-full flex justify-center'>
+                <button type="button" className=" w-1/5 shadow-lg mt-14 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">See All</button>
+            </Link>
         </div>
     );
 };
