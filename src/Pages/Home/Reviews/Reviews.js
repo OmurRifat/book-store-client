@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
 import Review from '../Review/Review';
 
 const Reviews = ({ book }) => {
-    // console.log(book)
+    const { user } = useContext(AuthContext)
     const { _id, bookName } = book
     const [reviews, setReviews] = useState([]);
-    // const [addReview, setAddReview] = useState("");
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
@@ -19,10 +19,10 @@ const Reviews = ({ book }) => {
         // console.log(from)
         const review = from.review.value;
         const newReview = {
-            picture: "something.jpg",
-            reviewerName: "something",
+            picture: user?.photoURL,
+            reviewerName: user?.displayName,
             review: review,
-            bookId: `${_id}`
+            bookId: _id
         }
         fetch(`http://localhost:5000/reviews/${_id}`, {
             method: "POST",
@@ -36,6 +36,7 @@ const Reviews = ({ book }) => {
 
         const updatedReview = [...reviews, newReview]
         setReviews(updatedReview);
+        from.reset();
         // console.log(newReview)
         // setAddReview(review);
 
