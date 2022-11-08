@@ -3,6 +3,8 @@ import Main from "../../layouts/Main";
 import AllBooks from "../../Pages/Home/AllBooks/AllBooks";
 import BookDetails from "../../Pages/Home/BookDetails/BookDetails";
 import Home from '../../Pages/Home/Home/Home'
+import Login from '../../Pages/Home/Authentication/Login/Login'
+import Register from '../../Pages/Home/Authentication/Register/Register'
 
 const router = createBrowserRouter([
     {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
                 path: '/book/:id',
                 element: <BookDetails></BookDetails>,
                 loader: async ({ params }) => await fetch(`http://localhost:5000/book/${params.id}`)
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     },
