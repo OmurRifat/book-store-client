@@ -19,7 +19,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/book/:id',
-                element: <BookDetails></BookDetails>
+                element: <BookDetails></BookDetails>,
+                loader: async ({ params }) => await fetch(`http://localhost:5000/book/${params.id}`)
             }
         ]
     },
