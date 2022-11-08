@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img1 from '../../../assets/Icons/remove-bg-png-2-removebg-preview1.png'
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Header = () => {
+    const { user, setUser, googleLogOut } = useContext(AuthContext)
+    const logOut = () => {
+        googleLogOut()
+            .then(() => setUser(null))
+            .catch((error) => console.error(error))
+    }
     return (
         <div>
-            <div className="flex justify-between items-center w-4/5">
+            <div className="flex justify-between items-center w-4/5 mx-auto">
                 <div className=' ml-auto'>
                     <Link to="/" className="flex items-center">
                         <img src={ img1 } className="mr-3 h-14 md:h-28" alt="site Logo" />
@@ -18,6 +25,13 @@ const Header = () => {
                         <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         <span className="sr-only">Search</span>
                     </button>
+                </div>
+                <div>
+                    {
+                        user?.uid ? <button onClick={ logOut } type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Log Out</button>
+                            :
+                            <Link to='/register'><button type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Log in / Register</button></Link>
+                    }
                 </div>
             </div>
             <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">

@@ -1,9 +1,15 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AuthProvider';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    // console.log(from)
+    // console.log(location.state?.from?.pathname, "frome 2nd")
+    const googleProvider = new GoogleAuthProvider();
     const { user, setUser, googleSignIn } = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
@@ -15,12 +21,14 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-        const googleProvider = new GoogleAuthProvider();
         googleSignIn(googleProvider)
-            .then(result => setUser(result.user))
+            .then(result => {
+                setUser(result.user)
+                navigate(from, { replace: true });
+            })
             .catch(error => console.error(error))
     }
-    console.log(user)
+    // console.log(user)
     return (
         <div>
             <form onSubmit={ handleLogin } className=' w-1/4 mx-auto my-28'>
