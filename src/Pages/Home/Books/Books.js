@@ -13,7 +13,7 @@ const Books = () => {
 
     return (
         <div className='my-20 w-4/5 mx-auto'>
-            <h2 className='text-2xl text-red-700 font-bold text-center bg-gray-100 py-4 shadow-xl rounded-xl'>New Collections of 2022</h2>
+            <h2 className='text-2xl text-red-700 font-bold text-center bg-gray-100 py-4 shadow-xl rounded-xl'>New Collections of 2022🔥</h2>
             <div className=' grid grid-flow-row grid-cols-3 mt-8'>
                 {
                     books.map(book => <Book
