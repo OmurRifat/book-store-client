@@ -10,14 +10,19 @@ const Login = () => {
     // console.log(from)
     // console.log(location.state?.from?.pathname, "frome 2nd")
     const googleProvider = new GoogleAuthProvider();
-    const { user, setUser, googleSignIn } = useContext(AuthContext);
+    const { user, setUser, googleSignIn, emailPassSignIn } = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         // console.log(form)
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        emailPassSignIn(email, password)
+            .then(result => {
+                setUser(result.user)
+                form.reset();
+            })
+            .catch(error => console.error("Error", error))
     }
 
     const handleGoogleSignIn = () => {

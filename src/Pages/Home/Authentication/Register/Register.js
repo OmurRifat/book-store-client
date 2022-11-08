@@ -8,7 +8,7 @@ const Register = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    const { user, setUser, googleSignIn } = useContext(AuthContext);
+    const { user, setUser, googleSignIn, emailPassRegister } = useContext(AuthContext);
 
 
     const handleRegister = e => {
@@ -17,6 +17,12 @@ const Register = () => {
         // console.log(form)
         const email = form.email.value;
         const password = form.password.value;
+        emailPassRegister(email, password)
+            .then(result => {
+                setUser(result.user)
+                form.reset();
+            })
+            .catch(error => console.error("Error:", error));
         // console.log(email, password)
     }
 

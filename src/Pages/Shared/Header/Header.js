@@ -4,9 +4,9 @@ import img1 from '../../../assets/Icons/remove-bg-png-2-removebg-preview1.png'
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Header = () => {
-    const { user, setUser, googleLogOut } = useContext(AuthContext)
-    const logOut = () => {
-        googleLogOut()
+    const { user, setUser, logOut } = useContext(AuthContext)
+    const signInOut = () => {
+        logOut()
             .then(() => setUser(null))
             .catch((error) => console.error(error))
     }
@@ -28,7 +28,7 @@ const Header = () => {
                 </div>
                 <div>
                     {
-                        user?.uid ? <button onClick={ logOut } type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Log Out</button>
+                        user?.uid ? <button onClick={ signInOut } type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Log Out</button>
                             :
                             <Link to='/register'><button type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Log in / Register</button></Link>
                     }

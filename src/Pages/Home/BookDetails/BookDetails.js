@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
+import React, { } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Reviews from '../Reviews/Reviews';
-import { AuthContext } from '../../../Context/AuthProvider'
 
 const BookDetails = () => {
     const book = useLoaderData();
-    const { user } = useContext(AuthContext)
-    console.log(user)
     const { bookName, authorName, publisher, picture, inStoke, publishedDate, bookDetails, price, _id } = book[0];
     return (
         <div>
@@ -39,7 +36,6 @@ const BookDetails = () => {
                     <small>Published at: { publishedDate }</small>
                 </div>
             </div>
-
             <div className='w-4/5 mx-auto'>
                 <Reviews book={ book[0] }></Reviews>
             </div>
