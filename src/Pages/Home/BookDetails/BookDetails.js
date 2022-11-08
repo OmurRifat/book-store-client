@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Reviews from '../Reviews/Reviews';
 
 const BookDetails = () => {
     const book = useLoaderData();
-    console.log(book[0])
+    // console.log(book[0])
     const { bookName, authorName, publisher, picture, inStoke, publishedDate, bookDetails, price, _id } = book[0];
     return (
         <div>
-            <div className="w-4/5 mx-auto mb-36 mt-14 flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div className="w-4/5 mx-auto mb-28 mt-14 flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={ picture } alt="" />
                 <div className="px-5 pb-5">
                     <Link to="#">
                         <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">{ bookName }</h5>
                         <p className='text-lg font-semibold my-2'>Author: { authorName }</p>
-                        <span className=" mb-4 bg-purple-300 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800 ml-3">Publisher: { publisher }</span>
+                        <span className=" mb-4 bg-gray-300 text-black text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-white dark:text-dark ml-3">Publisher: { publisher }</span>
                         <p>{ bookDetails }</p>
 
                     </Link>
@@ -35,6 +36,10 @@ const BookDetails = () => {
                     </div>
                     <small>Published at: { publishedDate }</small>
                 </div>
+            </div>
+
+            <div className='w-4/5 mx-auto'>
+                <Reviews book={ book[0] }></Reviews>
             </div>
 
         </div>
