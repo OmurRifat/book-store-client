@@ -9,7 +9,7 @@ const MyReview = ({ myReview }) => {
     const book = {}
 
     useEffect(() => {
-        fetch(`http://localhost:5000/book/${bookId}`)
+        fetch(`https://book-store-server-nu.vercel.app/book/${bookId}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data[0].bookName)
@@ -20,7 +20,7 @@ const MyReview = ({ myReview }) => {
 
     const handleDelete = () => {
         // console.log(bookId)
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

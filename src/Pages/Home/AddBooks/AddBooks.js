@@ -34,7 +34,7 @@ const AddBooks = () => {
             bookDetails: details,
             publishedDate: date
         }
-        fetch('http://localhost:5000/addbooks', {
+        fetch('https://book-store-server-nu.vercel.app/addbooks', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
