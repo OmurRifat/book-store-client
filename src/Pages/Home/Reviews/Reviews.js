@@ -43,7 +43,7 @@ const Reviews = ({ book }) => {
         // setAddReview(review);
 
     }
-    console.log(user)
+    // console.log(user)
     return (
         <div className='mb-20'>
             <h2 className='text-2xl text-gray-700 font-bold text-center bg-gray-100 py-4  rounded-t-xl'>Customers Review About <span className='text-3xl text-red-700'>"{ bookName }"</span></h2>
