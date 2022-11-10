@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
-const MyReview = ({ myReview }) => {
+const MyReview = ({ myReview, setUpdater }) => {
     // console.log(myReview)
-    const [bookName, setBookName] = useState(null);
-    const [deleteToast, setDeleteToast] = useState(false)
+    const [bookDetails, setBookDetails] = useState(null);
     const { bookId, review, _id } = myReview;
     const book = {}
 
@@ -12,9 +11,9 @@ const MyReview = ({ myReview }) => {
         fetch(`https://book-store-server-nu.vercel.app/book/${bookId}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data[0].bookName)
                 book.bookName = data[0].bookName;
-                setBookName(book)
+                book.picture = data[0].picture;
+                setBookDetails(book)
             })
     }, [bookId])
 
@@ -25,27 +24,31 @@ const MyReview = ({ myReview }) => {
         })
             .then(res => res.json())
             .then(data => {
+                setUpdater(data)
                 if (data.acknowledged) {
                     toast.success("Review Deleted Sucessfully")
+
                 }
 
             })
     }
     // console.log(bookName.bookName)
     return (
-        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <th scope="row" className="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
-                {/* <img className="w-10 h-10 rounded-full" src={ picture } alt="Jese image" /> */ }
+        <tr className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <th scope="row" className="flex flex-col items-center py-4 px-6 text-gray-900 whitespace-wrap dark:text-white">
+                <img className="w-10 h-10" src={ bookDetails?.picture } alt="Jese image" />
                 <div className="pl-3">
-                    <div className="text-base font-semibold">{ bookName?.bookName }</div>
+                    <div className="text-base font-semibold">{ bookDetails?.bookName }</div>
                 </div>
             </th>
             <td className="py-4 px-6">
-                { review }
+                <p className=' '>
+                    { review }
+                </p>
             </td>
             <td className="py-4 px-6">
 
-                <div className="inline-flex rounded-md shadow-sm" role="group">
+                <div className="flex flex-col md:flex-row rounded-md shadow-sm" role="group">
                     <button type="button" className="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         Update
                     </button>

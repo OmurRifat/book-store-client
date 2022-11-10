@@ -12,7 +12,7 @@ const Book = ({ book }) => {
         <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
             <PhotoProvider>
                 <PhotoView src={ picture }>
-                    <img className="p-8 rounded-t-lg" src={ picture } alt="product image" />
+                    <img className="p-8 h-64 rounded-t-lg" src={ picture } alt="product image" />
                 </PhotoView>
             </PhotoProvider>
             <div className="px-5 pb-5">

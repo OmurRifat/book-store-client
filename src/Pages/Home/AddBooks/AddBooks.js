@@ -1,5 +1,6 @@
 import { fromJSON } from 'postcss';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import toast, { Toaster } from 'react-hot-toast';
 
 const AddBooks = () => {
@@ -52,6 +53,9 @@ const AddBooks = () => {
     }
     return (
         <div className='w-4/5 mx-auto my-20'>
+            <Helmet>
+                <title>Add Books | Book Store</title>
+            </Helmet>
 
             <form onSubmit={ handleAddedBook }>
                 <div className="grid md:grid-cols-2 md:gap-6">

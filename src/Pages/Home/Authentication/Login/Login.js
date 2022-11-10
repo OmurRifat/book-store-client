@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AuthProvider';
 
@@ -36,7 +37,10 @@ const Login = () => {
     // console.log(user)
     return (
         <div>
-            <form onSubmit={ handleLogin } className=' w-1/4 mx-auto my-28'>
+            <Helmet>
+                <title>Login | Book Store</title>
+            </Helmet>
+            <form onSubmit={ handleLogin } className=' w-2/3 md:w-1/4 mx-auto my-28'>
                 <div className="shadow-red-600 shadow-xl rounded-xl px-6 pt-10 pb-8">
                     <h4 className=' text-center mb-6  my-2 text-xl font-bold text-red-700'>Login</h4>
                     <div className="relative my-2">

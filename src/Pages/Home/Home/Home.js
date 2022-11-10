@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Banner from '../Banner/Banner';
 import Books from '../Books/Books';
@@ -11,6 +12,9 @@ const Home = () => {
     // console.log(user.name)
     return (
         <div>
+            <Helmet>
+                <title>Home | Book Store</title>
+            </Helmet>
             <Banner></Banner>
             <Books></Books>
             <DailyLifes></DailyLifes>

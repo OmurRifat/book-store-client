@@ -6,7 +6,7 @@ import img4 from '../../../assets/Feature/call.svg'
 
 const Facilities = () => {
     return (
-        <div className='w-4/5 mx-auto mt-28 grid grid-flow-row grid-cols-4 py-20'>
+        <div className='w-4/5 mx-auto mt-28 grid grid-flow-row md:grid-cols-4 gap-y-10 py-20'>
             <div className="flex justify-center items-center">
                 <img className=' w-14 mr-3' src={ img1 } alt="" />
                 <div>

@@ -1,4 +1,5 @@
 import React, { } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 import Reviews from '../Reviews/Reviews';
 
@@ -7,6 +8,9 @@ const BookDetails = () => {
     const { bookName, authorName, publisher, picture, inStoke, publishedDate, bookDetails, price, _id } = book[0];
     return (
         <div>
+            <Helmet>
+                <title>Details | Book Store</title>
+            </Helmet>
             <div className="w-4/5 mx-auto mb-28 mt-14 flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={ picture } alt="" />
                 <div className="px-5 pb-5">

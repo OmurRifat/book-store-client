@@ -10,28 +10,28 @@ const PopularAuthor = () => {
     return (
         <div className='w-4/5 my-20 mx-auto'>
             <h2 className='text-2xl text-red-700 font-bold text-center bg-gray-100 py-4 rounded-t-xl'>Weekly Popular Authors🎉</h2>
-            <div className='mt-1 grid grid-flow-row grid-cols-6 gap-6 bg-gray-100 px-10 rounded-b-xl'>
-                <div className=" ">
+            <div className='mt-1 grid grid-flow-row md:grid-cols-6 gap-6 bg-gray-100 px-10 rounded-b-xl'>
+                <div className="mx-auto ">
                     <img className=' rounded-full mt-8 mb-4' src={ img1 } alt="" />
                     <p className='text-center mb-5 font-semibold text-red-600'>Author</p>
                 </div>
-                <div className=" ">
+                <div className="mx-auto  ">
                     <img className=' rounded-full mt-8 mb-4' src={ img2 } alt="" />
                     <p className='text-center mb-5 font-semibold text-red-600'>Author</p>
                 </div>
-                <div className=" ">
+                <div className="mx-auto  ">
                     <img className=' rounded-full mt-8 mb-4' src={ img3 } alt="" />
                     <p className='text-center mb-5 font-semibold text-red-600'>Author</p>
                 </div>
-                <div className=" ">
+                <div className=" mx-auto ">
                     <img className=' rounded-full mt-8 mb-4' src={ img4 } alt="" />
                     <p className='text-center mb-5 font-semibold text-red-600'>Author</p>
                 </div>
-                <div className=" ">
+                <div className="mx-auto  ">
                     <img className=' rounded-full mt-8 mb-4' src={ img5 } alt="" />
                     <p className='text-center mb-5 font-semibold text-red-600'>Author</p>
                 </div>
-                <div className=" ">
+                <div className="mx-auto  ">
                     <img className=' rounded-full mt-8 mb-4' src={ img6 } alt="" />
                     <p className='text-center mb-5 font-semibold text-red-600'>Author</p>
                 </div>
