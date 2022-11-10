@@ -15,6 +15,8 @@ const Reviews = ({ book }) => {
     // console.log(reviews)
 
     const handleReview = (e) => {
+        const date = new Date().toJSON();
+        console.log(date)
         e.preventDefault();
         const from = e.target;
         // console.log(from)
@@ -24,7 +26,8 @@ const Reviews = ({ book }) => {
             reviewerName: user?.displayName,
             review: review,
             bookId: _id,
-            reviewerEmail: user?.email
+            reviewerEmail: user?.email,
+            date: date
         }
         fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`, {
             method: "POST",
@@ -36,7 +39,7 @@ const Reviews = ({ book }) => {
             .then(res => res.json())
             .then(data => console.log(data));
 
-        const updatedReview = [...reviews, newReview]
+        const updatedReview = [newReview, ...reviews]
         setReviews(updatedReview);
         from.reset();
         // console.log(newReview)
