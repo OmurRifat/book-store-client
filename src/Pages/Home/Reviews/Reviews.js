@@ -8,7 +8,7 @@ const Reviews = ({ book }) => {
     const { _id, bookName } = book
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id, setReviews]);
@@ -26,7 +26,7 @@ const Reviews = ({ book }) => {
             bookId: _id,
             reviewerEmail: user?.email
         }
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
