@@ -39,7 +39,7 @@ const Reviews = ({ book }) => {
             .then(res => res.json())
             .then(data => console.log(data));
 
-        const updatedReview = [newReview, ...reviews]
+        const updatedReview = [...reviews, newReview]
         setReviews(updatedReview);
         from.reset();
         // console.log(newReview)
