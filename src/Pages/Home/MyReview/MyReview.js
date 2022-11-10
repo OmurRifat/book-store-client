@@ -8,7 +8,7 @@ const MyReview = ({ myReview, setUpdater }) => {
     const book = {}
 
     useEffect(() => {
-        fetch(`https://book-store-server-nu.vercel.app/book/${bookId}`)
+        fetch(`http://localhost:5000/book/${bookId}`)
             .then(res => res.json())
             .then(data => {
                 book.bookName = data[0].bookName;
@@ -19,7 +19,7 @@ const MyReview = ({ myReview, setUpdater }) => {
 
     const handleDelete = () => {
         // console.log(bookId)
-        fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`, {
+        fetch(`http://localhost:5000/reviews/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -36,7 +36,7 @@ const MyReview = ({ myReview, setUpdater }) => {
     return (
         <tr className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <th scope="row" className="flex flex-col items-center py-4 px-6 text-gray-900 whitespace-wrap dark:text-white">
-                <img className="w-10 h-10" src={ bookDetails?.picture } alt="Jese image" />
+                <img className="w-10 h-10" src={ bookDetails?.picture } alt="Book Image" />
                 <div className="pl-3">
                     <div className="text-base font-semibold">{ bookDetails?.bookName }</div>
                 </div>

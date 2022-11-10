@@ -8,15 +8,13 @@ const Reviews = ({ book }) => {
     const { _id, bookName } = book
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`)
+        fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id, setReviews]);
     // console.log(reviews)
 
     const handleReview = (e) => {
-        const date = new Date().toJSON();
-        console.log(date)
         e.preventDefault();
         const from = e.target;
         // console.log(from)
@@ -26,10 +24,9 @@ const Reviews = ({ book }) => {
             reviewerName: user?.displayName,
             review: review,
             bookId: _id,
-            reviewerEmail: user?.email,
-            date: date
+            reviewerEmail: user?.email
         }
-        fetch(`https://book-store-server-nu.vercel.app/reviews/${_id}`, {
+        fetch(`http://localhost:5000/reviews/${_id}`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +36,7 @@ const Reviews = ({ book }) => {
             .then(res => res.json())
             .then(data => console.log(data));
 
-        const updatedReview = [newReview, ...reviews]
+        const updatedReview = [...reviews, newReview]
         setReviews(updatedReview);
         from.reset();
         // console.log(newReview)

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/book/:id',
                 element: <BookDetails></BookDetails>,
-                loader: async ({ params }) => await fetch(`https://book-store-server-nu.vercel.app/book/${params.id}`)
+                loader: async ({ params }) => await fetch(`http://localhost:5000/book/${params.id}`)
             },
             {
                 path: '/myreviews',
