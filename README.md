@@ -1,4 +1,4 @@
-# EDUCARE - Education Care
+# Book Store
 
 This is an online book store, Here you find all types of books including international books.
 Our Team always tries to make the website significantly user-friendly. I hope you enjoy your journey with Book Store.
